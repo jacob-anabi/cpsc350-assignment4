@@ -2,10 +2,15 @@
 A C++ simulation based on a registrar's office
 
 Jacob Anabi
+
 2018-10-30
+
 1.0
+
 2294644
+
 CPSC 350
+
 Assignment 4 - Registrar Office Simulation
 
 ### Files
