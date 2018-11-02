@@ -24,5 +24,4 @@ int main(int argc, char** argv)
     {
         std::cout << err.getErr() << std::endl;
     }
-
 }
