@@ -52,6 +52,12 @@ public:
      */
     T peek();
     /**
+     * Returns the element at the specified position
+     * @param pos - the specified position
+     * @return - the element at that position
+     */
+    T peekPos(unsigned int pos);
+    /**
      * Searches for an element in the queue
      * @param elem - the element to search for
      * @return - the position the element is in the queue (-1 if it's not in the queue)
@@ -94,9 +100,8 @@ GenQueue<T>::GenQueue(T elem)
 // copy constructor
 template<class T>
 GenQueue<T>::GenQueue(const GenQueue& queue)
-: size(queue.size)//linkedList(new DoublyLinkedList<T>(queue.linkedList))
+: size(queue.size), linkedList(new DoublyLinkedList<T>(queue.linkedList))
 {
-    linkedList = new DoublyLinkedList<T>(queue.linkedList); // TODO: implement copy constructor for doubly linked list (or don't, i don't care)
 }
 
 // destructor
@@ -132,6 +137,13 @@ template<class T>
 T GenQueue<T>::peek()
 {
     return linkedList->peekFront();
+}
+
+// returns the element at the specified position
+template<class T>
+T GenQueue<T>::peekPos(unsigned int pos)
+{
+    return linkedList->peekPos(pos);
 }
 
 // searches for an element in the queue

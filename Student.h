@@ -11,6 +11,9 @@
 #define STUDENT_H
 
 
+#include <string>
+#include <iostream>
+
 class Student
 {
 public:
@@ -22,7 +25,7 @@ public:
      * Variable constructor
      * @param windowTime - the time the student needs at the window
      */
-    Student(unsigned int windowTime);
+    Student(int windowTime, int arrivalTime);
     /**
      * Copy constructor
      * @param student - the student to copy over
@@ -42,7 +45,7 @@ public:
      * Gets the window time the student needs
      * @return - the window time
      */
-    unsigned int getWindowTime();
+    int getWindowTime();
     /**
      * Gets the wait time of the student
      * @return - the wait time
@@ -58,11 +61,38 @@ public:
      * @param waiting - the passed in boolean value
      */
     void setWaiting(bool waiting);
+    /**
+     * Gets the student's arrival time
+     * @return - the student's arrival time
+     */
+    int getArrivalTime();
+
+    // Operator overloading
+    /**
+     * Overloads the = operator
+     * @param student - the student to set this student equal to
+     * @return - our student with the copied over values
+     */
+    Student& operator=(const Student& student);
+    /**
+     * Overloads the != operator
+     * @param student - the student to check != for
+     * @return - a boolean value that is true if they don't equal each other, false other wise
+     */
+    bool operator!=(const Student& student);
+    /**
+     * Overloads the << operator
+     * @param os - the ostream object
+     * @param student - the student for the ostream
+     * @return - the ostream
+     */
+    friend std::ostream& operator<<(std::ostream& os, const Student& student);
 
 private:
-    unsigned int windowTime;
+    int windowTime;
     unsigned int waitTime;
     bool waiting;
+    int arrivalTime;
 };
 
 #endif // STUDENT_H

@@ -92,6 +92,12 @@ public:
      */
     void printList() override;
     /**
+     * Returns the date of the node at the specified position
+     * @param pos - the position to check at
+     * @return - the data at the specified node
+     */
+    T peekPos(unsigned int pos) override;
+    /**
      * Checks if the list is empty
      * @return - a boolean value that returns true if the list is empty false otherwise
      */
@@ -129,7 +135,7 @@ DoublyLinkedList<T>::DoublyLinkedList(T data)
 
 // copy constructor
 template<class T>
-DoublyLinkedList<T>::DoublyLinkedList(const DoublyLinkedList &list)
+DoublyLinkedList<T>::DoublyLinkedList(const DoublyLinkedList& list)
 {
 // this implementation is left as an exercise for the reader
 }
@@ -337,6 +343,27 @@ void DoublyLinkedList<T>::printList()
         currentNode = currentNode->next;
     }
     std::cout << std::endl;
+}
+
+// returns the data of the node at the specified position
+template<class T>
+T DoublyLinkedList<T>::peekPos(unsigned int pos)
+{
+    if (pos >= size) // remove at position greater than the size of the list
+    {
+        throw  LinkedListException("Linked List index out of bounds error");
+    }
+    // position < size
+    int currentPos = 0;
+    DoublyLinkedListNode<T>* currentNode = front;
+    while (currentPos != pos)
+    {
+        currentNode = currentNode->next;
+        ++currentPos;
+    }
+
+    // we found it
+    return currentNode->data;
 }
 
 // determines if the list is empty or not

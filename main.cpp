@@ -8,10 +8,21 @@
  */
 
 #include <iostream>
+#include "Simulation.h"
+#include "SimulationException.h"
+#include "LinkedListException.h"
+#include "QueueException.h"
 
-int main()
+int main(int argc, char** argv)
 {
+    try
+    {
+        Simulation* simulation = new Simulation(argv[1]);
+        simulation->run();
+    }
+    catch (RuntimeException& err)
+    {
+        std::cout << err.getErr() << std::endl;
+    }
 
 }
-
-

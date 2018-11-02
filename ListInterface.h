@@ -55,6 +55,11 @@ public:
      */
     virtual void printList() = 0;
     /**
+     * Returns the data at the specified position
+     * @param pos - the position to check at
+     */
+    virtual T peekPos(unsigned int pos) = 0;
+    /**
      * Checks if the list is empty
      * @return - a boolean value that returns true if the list is empty false otherwise
      */
