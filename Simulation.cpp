@@ -177,7 +177,7 @@ void Simulation::run()
             }
             meanIdle += idleTimes[i];
         }
-        meanIdle /= meanIdle;
+        meanIdle /= numWindows;
 
         std::cout << "Student Wait Times:\n"
         << "Mean wait, Median wait, Longest wait, Waits over 10 minutes, respectively: "
