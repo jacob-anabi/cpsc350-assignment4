@@ -141,7 +141,7 @@ void Simulation::run()
         int longestIdle = 0;
         int over5Idle = 0;
 
-        std::sort(waitTimes, waitTimes + numStudents); // sorting wait times
+        std::sort(waitTimes, waitTimes + numStudents); // sorting wait times, https://stackoverflow.com/a/5897332
         for (int i = 0; i < numStudents; ++i)
         {
             if (waitTimes[i] > longestWait)
@@ -177,6 +177,7 @@ void Simulation::run()
             }
             meanIdle += idleTimes[i];
         }
+        meanIdle /= meanIdle;
 
         std::cout << "Student Wait Times:\n"
         << "Mean wait, Median wait, Longest wait, Waits over 10 minutes, respectively: "
